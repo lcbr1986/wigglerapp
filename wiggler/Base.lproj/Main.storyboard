@@ -1,25 +1,107 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dIq-sE-TCG">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="odk-Ct-AV4">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tz8-Kk-PPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="dIq-sE-TCG" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CXF-qq-LQH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.80000000000000004" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="4Tu-Cd-7WY" kind="show" identifier="GoToMain" id="1ty-Dd-Qgw"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-812" y="444"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="qHB-5C-XNv">
+            <objects>
+                <viewController storyboardIdentifier="ViewController" id="4Tu-Cd-7WY" customClass="ViewController" customModule="wiggler" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="CSO-I4-tA3"/>
+                        <viewControllerLayoutGuide type="bottom" id="dPU-bQ-wTD"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="dve-k6-0iO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Woo-QB-IaP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-8" y="444"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="Irx-Ub-jMz">
+            <objects>
+                <viewController storyboardIdentifier="LoginView" id="1qH-zG-aqL" customClass="LoginViewController" customModule="wiggler" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tOT-v3-Wfa"/>
+                        <viewControllerLayoutGuide type="bottom" id="bqM-zv-LeN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6FO-2A-lwv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="ILJ-cR-ZYZ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TAj-qH-qKm">
+                                <rect key="frame" x="180" y="278" width="240" height="45"/>
+                                <color key="backgroundColor" red="0.0" green="0.44705882349999998" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="D76-y4-Mrv"/>
+                                    <constraint firstAttribute="height" constant="45" id="T4f-IN-VqW"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Sign in with ">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="18" name="HelveticaNeue"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="facebook">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="18" name="HelveticaNeue-Bold"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="facebookLoginPressed:" destination="1qH-zG-aqL" eventType="touchUpInside" id="vJm-Ny-st5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TAj-qH-qKm" firstAttribute="centerY" secondItem="6FO-2A-lwv" secondAttribute="centerY" id="4AZ-1g-SZr"/>
+                            <constraint firstItem="bqM-zv-LeN" firstAttribute="top" secondItem="ILJ-cR-ZYZ" secondAttribute="bottom" id="7n7-o0-flA"/>
+                            <constraint firstItem="TAj-qH-qKm" firstAttribute="centerX" secondItem="6FO-2A-lwv" secondAttribute="centerX" id="7ra-nU-WEe"/>
+                            <constraint firstAttribute="trailing" secondItem="ILJ-cR-ZYZ" secondAttribute="trailing" id="IoA-Oj-cfr"/>
+                            <constraint firstItem="ILJ-cR-ZYZ" firstAttribute="top" secondItem="6FO-2A-lwv" secondAttribute="top" id="diL-gu-AJY"/>
+                            <constraint firstItem="ILJ-cR-ZYZ" firstAttribute="leading" secondItem="6FO-2A-lwv" secondAttribute="leading" id="fih-hB-xEQ"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hdG-Rf-qcl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="770" y="324"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LoginBackground" width="1726" height="1151"/>
+    </resources>
 </document>

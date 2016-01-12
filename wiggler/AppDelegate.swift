@@ -8,39 +8,59 @@
 
 import UIKit
 
+let ViewControllerIdentifier = "ViewController"
+let LoginViewControllerIdentifier = "LoginView"
+let HomeNavigationControllerIdentifier = "HomeNavigation"
+let HomeViewControllerIdentifier = "HomeView"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
 
+    let appDependencies = AppDependencies()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let navigationController = navigationControllerFromWindow(window!)
+        navigationController.viewControllers = [viewControllerFromStoryboard()]
         return true
     }
 
-    func applicationWillResignActive(application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    func viewControllerFromStoryboard() -> ViewController {
+        let storyboard = mainStoryboard()
+        let viewController = storyboard.instantiateViewControllerWithIdentifier(ViewControllerIdentifier) as! ViewController
+        return viewController
     }
-
-    func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    func loginViewControllerFromStoryboard() -> LoginViewController {
+        let storyboard = mainStoryboard()
+        let loginViewcontroller = storyboard.instantiateViewControllerWithIdentifier(LoginViewControllerIdentifier) as! LoginViewController
+        return loginViewcontroller
     }
-
-    func applicationWillEnterForeground(application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
+    func homeViewControllerFromStoryboard() -> UINavigationController {
+        let storyboard = homeStoryboard()
+        let homeViewController = storyboard.instantiateViewControllerWithIdentifier(HomeNavigationControllerIdentifier) as! UINavigationController
+        return homeViewController
     }
-
-    func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    func mainStoryboard() -> UIStoryboard {
+        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        return storyboard
     }
-
-    func applicationWillTerminate(application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
+    func homeStoryboard() -> UIStoryboard {
+        let storyboard = UIStoryboard(name: "Home", bundle: NSBundle.mainBundle())
+        return storyboard
     }
-
-
+    
+    func navigationControllerFromWindow(window: UIWindow) -> UINavigationController {
+        let navigationController = window.rootViewController as! UINavigationController
+        return navigationController
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+    }
 }
 
